@@ -41,8 +41,6 @@ public class EspecieController {
             throw new Exception("Nenhuma espécie selecionada para remoção.");
         }
 
-        // (TODO verificar se não contém aves dessa espécie)
-
         if (!this.listaEspecies.contains(especie)){
             throw new Exception("A espécie '"+ especie.getNome() + "' não está cadastrada");
         }

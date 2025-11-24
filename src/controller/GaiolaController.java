@@ -1,5 +1,7 @@
 package controller;
 
+import model.Ave;
+import model.Especie;
 import model.Gaiola;
 import model.TipoGaiola;
 
@@ -7,6 +9,7 @@ import java.util.ArrayList;
 
 public class GaiolaController {
     private ArrayList<Gaiola> listaGaiolas;
+
 
     public GaiolaController(){
         this.listaGaiolas = new ArrayList<>();
@@ -45,7 +48,6 @@ public class GaiolaController {
             throw new Exception("Nenhuma gaiola selecionada para remoção.");
         }
 
-        // (TODO verificar se a gaiola não contém aves)
 
         if (!this.listaGaiolas.contains(gaiola)) {
             throw new Exception("Esta gaiola não existe.");

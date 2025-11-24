@@ -51,5 +51,10 @@ public class Ave {
         }
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return this.anilha + " (" + this.especie.getNome() + ")";
+    }
 }
 

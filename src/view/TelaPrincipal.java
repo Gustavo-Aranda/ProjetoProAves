@@ -72,16 +72,26 @@ public class TelaPrincipal extends JFrame {
     }
 
     private void acaoGerenciarGaiolas() {
-        CadastroGaiola dialogo = new CadastroGaiola(this, gaiolaController);
+        GerenciadorGaiola dialogo = new GerenciadorGaiola(this, gaiolaController, plantelController);
         dialogo.setVisible(true);
     }
 
     private void acaoGerenciarEspecies() {
-        JOptionPane.showMessageDialog(this, "A fazer: Lançar DialogoGerenciadorEspecies");
+        GerenciadorEspecie dialogo = new GerenciadorEspecie(this, especieController, plantelController);
+        dialogo.setVisible(true);
     }
 
     private void acaoRemoverAve() {
-        JOptionPane.showMessageDialog(this, "A fazer: Lançar DialogoRemoverAve");
+        if (plantelController.getPlantel().isEmpty()){
+            JOptionPane.showMessageDialog(this,
+                    "Não há aves no plantel a serem removidas.",
+                    "Plantel vazio",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        RemoverAve dialogo = new RemoverAve(this, plantelController);
+        dialogo.setVisible(true);
     }
 
     private void acaoSair() {

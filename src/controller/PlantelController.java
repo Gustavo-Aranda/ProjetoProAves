@@ -13,25 +13,13 @@ public class PlantelController {
         if (anilha == null || anilha.trim().isEmpty()) {
             throw new Exception("A anilha não pode ser vazia.");
         }
-        if (especie == null) {
-            throw new Exception("A espécie deve ser selecionada.");
-        }
-        if (sexo == null) {
-            throw new Exception("O sexo deve ser selecionado.");
-        }
         if (cor == null || cor.trim().isEmpty()) {
             throw new Exception("A cor não pode ser vazia.");
-        }
-        if (gaiola == null) {
-            throw new Exception("A gaiola não pode ser vazia.");
-        }
-        if (status == null) {
-            throw new Exception("O status deve ser selecionado.");
         }
 
         for (Ave ave : this.plantel){
             if (ave.getAnilha().equalsIgnoreCase(anilha.trim())){
-                throw new Exception("Erro (RF003): A anilha '" + anilha + "' já está cadastrada.");
+                throw new Exception("Erro: A anilha '" + anilha + "' já está cadastrada.");
             }
         }
 
@@ -79,5 +67,36 @@ public class PlantelController {
 
     public ArrayList<Ave> getPlantel(){
         return new ArrayList<>(this.plantel);
+    }
+
+    public ArrayList<Ave> getAvesPorGaiola(Gaiola gaiola){
+        ArrayList<Ave> avesNaGaiola = new ArrayList<>();
+        if (gaiola == null) return avesNaGaiola;
+
+        for (Ave ave : this.plantel){
+            if (ave.getGaiola().equals(gaiola)){
+                avesNaGaiola.add(ave);
+            }
+        }
+
+        return avesNaGaiola;
+    }
+
+    public boolean verificarEspecieEmUso(Especie especie) {
+        for (Ave ave : this.plantel) {
+            if (ave.getEspecie().equals(especie)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean verificarGaiolaEmUso(Gaiola gaiola) {
+        for (Ave ave : this.plantel) {
+            if (ave.getGaiola().equals(gaiola)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
