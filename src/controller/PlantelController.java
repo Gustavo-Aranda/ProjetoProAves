@@ -38,33 +38,6 @@ public class PlantelController {
         this.plantel.remove(ave);
     }
 
-    public String getPlantelFormatado(){
-        if (this.plantel.isEmpty()){
-            return "Nenhuma ave encontrada no plantel.";
-        }
-
-        StringBuilder sb = new StringBuilder("--- PLANTEL DE AVES ---\n\n");
-        for (Ave ave : this.plantel){
-            sb.append(String.format(
-                    "Anilha: %s\n" +
-                            "Espécie: %s\n" +
-                            "Sexo: %s\n" +
-                            "Cor: %s\n" +
-                            "Gaiola: %s (Tipo: %s)\n" +
-                            "Status: %s\n" +
-                            "-------------------------------\n",
-                    ave.getAnilha(),
-                    ave.getEspecie(),
-                    ave.getSexo(),
-                    ave.getCor(),
-                    ave.getGaiola().getCodigo(),
-                    ave.getGaiola().getTipo(),
-                    ave.getStatus()
-            ));
-        }
-        return sb.toString();
-    }
-
     public ArrayList<Ave> getPlantel(){
         return new ArrayList<>(this.plantel);
     }

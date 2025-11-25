@@ -74,7 +74,13 @@ public class Ave {
 
     @Override
     public String toString() {
-        return this.anilha + " (" + this.especie.getNome() + ")";
+        return String.format("%-8s | %-15s | %-9s | %-10s | Gaiola: %-5s | [%s]",
+                anilha,
+                especie.getNome(),
+                sexo,
+                cor,
+                (gaiola != null ? gaiola.getCodigo() : "N/D"),
+                status);
     }
 }
 
