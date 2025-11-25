@@ -74,8 +74,6 @@ public class PlantelController {
     }
 
     public void atualizarAve(Ave aveOriginal, String novaAnilha, Especie novaEspecie, Sexo novoSexo, String novaCor, Gaiola novaGaiola, Status novoStatus) throws Exception{
-        validarDados(novaAnilha, novaEspecie, novoSexo, novaCor, novaGaiola, novoStatus);
-
         for (Ave ave : this.plantel){
             if (!ave.equals(aveOriginal) && ave.getAnilha().equalsIgnoreCase(novaAnilha.trim())){
                 throw new Exception("A anilha "+novaAnilha+" já pertence à outra ave.");
@@ -88,14 +86,5 @@ public class PlantelController {
         aveOriginal.setStatus(novoStatus);
         aveOriginal.setSexo(novoSexo);
         aveOriginal.setGaiola(novaGaiola);
-    }
-
-    private void validarDados(String anilha, Especie especie, Sexo sexo, String cor, Gaiola gaiola, Status status) throws Exception {
-        if (anilha == null || anilha.trim().isEmpty()) throw new Exception("A anilha não pode ser vazia.");
-        if (especie == null) throw new Exception("A espécie deve ser selecionada.");
-        if (sexo == null) throw new Exception("O sexo deve ser selecionado.");
-        if (cor == null || cor.trim().isEmpty()) throw new Exception("A cor não pode ser vazia.");
-        if (gaiola == null) throw new Exception("A gaiola não pode ser vazia.");
-        if (status == null) throw new Exception("O status deve ser selecionado.");
     }
 }
