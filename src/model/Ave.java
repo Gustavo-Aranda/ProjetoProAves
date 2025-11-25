@@ -45,6 +45,22 @@ public class Ave {
         return status;
     }
 
+    public void setAnilha(String anilha) {
+        this.anilha = anilha;
+    }
+
+    public void setEspecie(Especie especie) {
+        this.especie = especie;
+    }
+
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
     public void setStatus(Status status) {
         if (status == null) {
             throw new IllegalArgumentException("Status não pode ser nulo.");
