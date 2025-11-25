@@ -32,7 +32,9 @@ public class GerenciadorPlantel extends JDialog {
         setLayout(new BorderLayout(10, 10));
 
         add(criarPainelLista(), BorderLayout.CENTER);
-        add(new JLabel("Clique duas vezes para editar status ou detalhes", JLabel.CENTER), BorderLayout.SOUTH);
+        JLabel lblDica = new JLabel("Clique duas vezes na ave para editar.", JLabel.CENTER);
+        lblDica.setFont(new Font("Arial", Font.ITALIC, 14));
+        add(lblDica, BorderLayout.NORTH);
 
         atualizarListaVisual();
     }
@@ -40,7 +42,7 @@ public class GerenciadorPlantel extends JDialog {
     private JScrollPane criarPainelLista(){
         listModel = new DefaultListModel<>();
         listaAvesVisual = new JList<>(listModel);
-        listaAvesVisual.setFont(new Font("Arial", Font.BOLD, 12));
+        listaAvesVisual.setFont(new Font("Arial", Font.PLAIN, 14));
 
         listaAvesVisual.addMouseListener(new MouseAdapter() {
             @Override

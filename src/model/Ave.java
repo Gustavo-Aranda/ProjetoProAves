@@ -74,9 +74,9 @@ public class Ave {
 
     @Override
     public String toString() {
-        return String.format("%-8s | %-15s | %-9s | %-10s | Gaiola: %-5s | [%s]",
+        return String.format("%s | %s | %s | %s | Gaiola: %s | [%s]",
                 anilha,
-                especie.getNome(),
+                especie,
                 sexo,
                 cor,
                 (gaiola != null ? gaiola.getCodigo() : "N/D"),

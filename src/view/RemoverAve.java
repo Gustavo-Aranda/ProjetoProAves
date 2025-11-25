@@ -31,7 +31,7 @@ public class RemoverAve extends JDialog {
         atualizarListaVisual();
 
         JLabel lblDica = new JLabel("Selecione uma ave na lista para remover.", JLabel.CENTER);
-        lblDica.setFont(new Font("Arial", Font.ITALIC, 11));
+        lblDica.setFont(new Font("Arial", Font.ITALIC, 14));
         add(lblDica, BorderLayout.NORTH);
     }
 
@@ -40,7 +40,7 @@ public class RemoverAve extends JDialog {
         listaAvesVisual = new JList<>(listModel);
 
         listaAvesVisual.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        listaAvesVisual.setFont(new Font("Arial", Font.PLAIN, 12));
+        listaAvesVisual.setFont(new Font("Arial", Font.PLAIN, 14));
 
         JScrollPane scrollPane = new JScrollPane(listaAvesVisual);
         scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 0, 10));

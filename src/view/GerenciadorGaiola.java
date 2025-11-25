@@ -40,7 +40,7 @@ public class GerenciadorGaiola extends JDialog {
         atualizarListaVisual();
 
         JLabel lblDica = new JLabel("Clique duas vezes na gaiola para ver as aves.", JLabel.CENTER);
-        lblDica.setFont(new Font("Arial", Font.ITALIC, 10));
+        lblDica.setFont(new Font("Arial", Font.ITALIC, 14));
         add(lblDica, BorderLayout.NORTH);
     }
 
