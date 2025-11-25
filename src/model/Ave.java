@@ -61,6 +61,10 @@ public class Ave {
         this.cor = cor;
     }
 
+    public void setGaiola(Gaiola gaiola){
+        this.gaiola = gaiola;
+    }
+
     public void setStatus(Status status) {
         if (status == null) {
             throw new IllegalArgumentException("Status não pode ser nulo.");
