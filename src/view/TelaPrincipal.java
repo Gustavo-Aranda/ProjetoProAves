@@ -38,7 +38,7 @@ public class TelaPrincipal extends JFrame {
 
         add(criarBotao("Gerenciar Espécies", e -> acaoGerenciarEspecies()));
 
-        add(criarBotao("Visualizar Plantel", e -> acaoVisualizarPlantel()));
+        add(criarBotao("Visualizar/Editar Plantel", e -> acaoVisualizarPlantel()));
         add(criarBotao("Sair", e -> acaoSair()));
     }
 
@@ -60,15 +60,8 @@ public class TelaPrincipal extends JFrame {
     }
 
     private void acaoVisualizarPlantel() {
-        String relatorio = plantelController.getPlantelFormatado();
-        JTextArea area = new JTextArea(relatorio, 25, 60);
-        area.setEditable(false);
-        area.setFont(new Font("Monospaced", Font.PLAIN, 12));
-        JScrollPane scroll = new JScrollPane(area);
-        JOptionPane.showMessageDialog(this,
-                scroll,
-                "Relatório do Plantel",
-                JOptionPane.INFORMATION_MESSAGE);
+        GerenciadorPlantel dialogo = new GerenciadorPlantel(this, plantelController, especieController, gaiolaController);
+        dialogo.setVisible(true);
     }
 
     private void acaoGerenciarGaiolas() {
