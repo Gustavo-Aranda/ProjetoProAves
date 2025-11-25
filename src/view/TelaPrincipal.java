@@ -23,23 +23,34 @@ public class TelaPrincipal extends JFrame {
 
     private void configurarJanela() {
         setTitle("ProAves - Gerenciador de Plantel v1.0");
-        setLayout(new GridLayout(3, 3, 10, 10));
-        setSize(800, 400);
+        setLayout(new BorderLayout(10, 10));
+        setSize(800, 500);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+
         ((JPanel) getContentPane()).setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     }
 
     private void configurarComponentes() {
-        add(criarBotao("Adicionar Ave", e -> acaoAdicionarAve()));
-        add(criarBotao("Remover Ave", e -> acaoRemoverAve()));
+        JLabel lblBanner = new JLabel("Bem-Vindo ao ProAves!", SwingConstants.CENTER);
+        lblBanner.setFont(new Font("Segoe UI", Font.BOLD, 32));
+        lblBanner.setOpaque(true);
+        lblBanner.setBackground(new Color(0, 102, 204));
+        lblBanner.setForeground(Color.WHITE);
+        lblBanner.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
 
-        add(criarBotao("Gerenciar Gaiolas", e -> acaoGerenciarGaiolas()));
+        JPanel painelBotoes = new JPanel(new GridLayout(3, 3, 15, 15));
 
-        add(criarBotao("Gerenciar Espécies", e -> acaoGerenciarEspecies()));
+        painelBotoes.add(criarBotao("Adicionar Ave", e -> acaoAdicionarAve()));
+        painelBotoes.add(criarBotao("Adicionar Gaiola", e -> acaoGerenciarGaiolas()));
+        painelBotoes.add(criarBotao("Gerenciar Espécies", e -> acaoGerenciarEspecies()));
+        painelBotoes.add(criarBotao("Remover Ave", e -> acaoRemoverAve()));
+        painelBotoes.add(criarBotao("Visualizar/Editar Plantel", e -> acaoVisualizarPlantel()));
+        painelBotoes.add(criarBotao("Sair", e -> acaoSair()));
 
-        add(criarBotao("Visualizar/Editar Plantel", e -> acaoVisualizarPlantel()));
-        add(criarBotao("Sair", e -> acaoSair()));
+        add(lblBanner, BorderLayout.NORTH);
+        add(painelBotoes, BorderLayout.CENTER);
     }
 
     private JButton criarBotao(String texto, java.awt.event.ActionListener acao) {
