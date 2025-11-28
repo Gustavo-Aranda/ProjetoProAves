@@ -3,7 +3,7 @@ package model;
 public enum TipoGaiola {
     VIVEIRO("Viveiro"),
     CRIADEIRA("Criadeira"),
-    SUSPENSA("Suspena"),
+    SUSPENSA("Suspensa"),
     NORMAL("Normal");
 
     private final String nome;
